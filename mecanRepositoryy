@@ -1,0 +1,10 @@
+sudo cat <<EOF > /etc/apt/sources.list.d/MeCan.list
+deb https://repo.mecan.ir/repository/debian/ bookworm main
+deb https://repo.mecan.ir/repository/debian/ bookworm-updates main
+deb https://repo.mecan.ir/repository/debian/ bookworm-backports main
+deb https://repo.mecan.ir/repository/debian-security/ bookworm-security main
+EOF
+
+
+
+https://repo.mecan.ir/repository/debian-docker/gpg

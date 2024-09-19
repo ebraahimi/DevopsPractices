@@ -1,0 +1,71 @@
+# Lynis Configuration File
+# File: /etc/lynis/lynis.conf
+
+# Define the system type (can be 'debian' to focus on Debian-specific checks)
+system_type="debian"
+
+# Enable or disable tests (Set to 'yes' to enable, 'no' to disable)
+enable_test_audit="yes"
+enable_test_dhcp="no"
+enable_test_docker="no"
+enable_test_firewall="yes"
+enable_test_filesystem="yes"
+enable_test_kernel="yes"
+enable_test_network="yes"
+enable_test_services="yes"
+enable_test_ssh="yes"
+enable_test_sudo="yes"
+
+# Additional parameters for specific tests
+# Ensure SSH security settings are enforced
+ssh_permit_root_login="no"
+ssh_password_authentication="no"
+
+# Log level can be 'info', 'warning', or 'critical'
+log_level="warning"
+
+# Output format: 'text' or 'json'
+output_format="text"
+
+# Path to the report file
+report_file="/var/log/lynis-report.log"
+
+# Define audit type ('full' for thorough check, 'quick' for basic check)
+audit_type="full"
+
+# Custom paths for Lynis plugins or scripts (if any)
+custom_plugins="/usr/local/lynis/plugins"
+
+# Schedule for regular audits (in minutes)
+# Set to blank if not using automated schedules
+audit_interval="1440"  # 24 hours
+
+# Include or exclude specific system services
+include_services="sshd,cron"
+exclude_services="apache2"
+
+# Log file settings for Lynis
+log_file="/var/log/lynis/audit.log"
+
+# Additional arguments to include extra security checks
+# Example: --tests-from-group security includes a broader set of security checks
+additional_args="--tests-from-group security --tests-from-group hardening"
+
+# Optional: Disable specific checks if they are not relevant or not applicable
+# Example: Disable specific checks related to services or configurations
+disable_tests="test-missing-file-permissions,test-non-standard-port"
+
+# Specify checks for critical files and directories
+check_file_permissions="/etc/ssh/sshd_config,/etc/passwd,/etc/group"
+
+# Set the desired score target (informational only, not enforced)
+
+
+
+
+
+
+target_score="85"
+
+# Ensure all required packages and configurations are in place
+# This might include setting up proper firewall rules, securing SSH, etc.
